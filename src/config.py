@@ -20,6 +20,7 @@ SRC_DIR = Path(__file__).resolve().parent
 
 DATA_DIR = SRC_DIR / "../data"
 TEAM_TEMPLATE_IMAGE = DATA_DIR / "team.png"
+REGULATION_FILE = DATA_DIR / "regulation.csv"
 
 TMP_DIR = SRC_DIR / "../tmp"
 MISC_DIR = TMP_DIR / "misc"
@@ -29,13 +30,7 @@ TEAM_IMAGE_DIR = TMP_DIR / "team_image"
 TEAM_TEXT_DIR = TMP_DIR / "team_text"
 TEAM_SUMMARY_DIR = TMP_DIR / "team_summary"
 
-
-if os.name == 'nt':
-    OUTPUT_DIR = SRC_DIR / "../output"
-else:
-    OUTPUT_DIR = SRC_DIR / "../download/kata"
-
-REGULATION_FILE = OUTPUT_DIR / "regulation.csv"
+OUTPUT_DIR = SRC_DIR / "../output"
 
 
 def get_indiv_dir(season, rule) -> str:
