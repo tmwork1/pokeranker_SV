@@ -10,7 +10,7 @@ Python >= 3.10
 
 ### ダウンロード
 ```
-git clone https://github.com/tmwork1/pokeranker_SV.git
+git clone https://github.com/tmwork1/pokeranker-sv.git
 ```
 
 ### 使い方
