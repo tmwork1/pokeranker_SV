@@ -1,7 +1,6 @@
 import utils as ut
 from globals import g
 import os
-import subprocess
 
 import config
 
