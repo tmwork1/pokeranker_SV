@@ -19,6 +19,10 @@ from config import *
 OCR_history = []
 
 
+def file_from_url(url):
+    return f"{url[url.rfind('/')+1:]}"
+
+
 def download_url(url: str, dst, timeout: int = 10) -> bool:
     try:
         with urllib.request.urlopen(url, timeout=timeout) as res:
@@ -26,29 +30,20 @@ def download_url(url: str, dst, timeout: int = 10) -> bool:
                 shutil.copyfileobj(res, f)
         return True
     except socket.timeout:
+        print("Timeout")
         return False
     except Exception as e:
+        print(e)
         return False
 
 
-def season_rule_dir(g) -> str:
-    return f"s{g['season']}_{g['rule']}"
-
-
-def clear_tmp_dir():
-    """tmpフォルダを空にする"""
-    if os.path.exists('tmp/'):
-        shutil.rmtree('tmp/')
-    os.makedirs('tmp/', exist_ok=True)
-
-
-def num_files(dir: Path):
+def count_files(dir: Path):
     return sum(1 for f in dir.iterdir() if f.is_file())
 
 
 def load_zukan():
     zukan = {}
-    with open(DATA_PATH / 'zukan.csv', encoding='utf-8') as fin:
+    with open(DATA_DIR / 'zukan.csv', encoding='utf-8') as fin:
         reader = csv.reader(fin)
         header = next(reader)
         for row in reader:
@@ -62,7 +57,7 @@ def load_zukan():
 
 def load_abilities():
     abilities = {}
-    with open(DATA_PATH / 'zukan.csv', encoding='utf-8') as fin:
+    with open(DATA_DIR / 'zukan.csv', encoding='utf-8') as fin:
         reader = csv.reader(fin)
         next(reader)
         for row in reader:
@@ -120,7 +115,7 @@ def find_most_similar(str_list, s, ignore_dakuten=False):
     return str_list[distances.index(min(distances))]
 
 
-def file_name_exists(dir, stem: str) -> bool:
+def check_file_existence_by_stem(dir, stem: str) -> bool:
     for file in Path(dir).iterdir():
         if file.is_file() and file.stem == stem:
             return True
