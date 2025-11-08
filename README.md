@@ -4,7 +4,7 @@
 ### 紹介記事  
 https://hfps4469.hatenablog.com/entry/2024/10/11/100325
 
-## インストール
+## ダウンロード
 ```
 git clone https://github.com/tmwork1/pokeranker_SV.git
 ```
