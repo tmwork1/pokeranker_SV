@@ -30,10 +30,10 @@ def download_url(url: str, dst, timeout: int = 10) -> bool:
                 shutil.copyfileobj(res, f)
         return True
     except socket.timeout:
-        print("Timeout")
+        # print("Timeout")
         return False
     except Exception as e:
-        print(e)
+        # print(e)
         return False
 
 

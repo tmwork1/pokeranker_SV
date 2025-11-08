@@ -15,7 +15,7 @@ git clone https://github.com/tmwork1/pokeranker-sv.git
 
 ### 使い方
 ```
-python main.py
+python src/main.py
 ```
 
 ### 引用

@@ -8,7 +8,7 @@ import config
 
 def create_kata_data(rule: str):
     # レギュレーション一覧の取得
-    filepath = config.OUTPUT_DIR / 'regulation.csv'
+    filepath = config.REGULATION_FILE
     with open(filepath, newline='', encoding='utf-8') as f:
         reader = csv.reader(f)
         regulations = {row[0]: row[1] for row in reader}  # {"season": "regulation"}
