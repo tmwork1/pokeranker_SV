@@ -12,17 +12,11 @@ from step4_output_ranker import create_ranker_data
 from step5_output_kata import create_kata_data
 
 
-if __name__ == '__main__':
-
-    # ------------------------------------------------------------------------
+def run(rule):
+    g['rule'] = rule
 
     season_start = ut.current_season() - 1
     season_stop = 1
-    rule = "single"
-
-    # ------------------------------------------------------------------------
-
-    g['rule'] = rule
 
     # 過去シーズンのループ
     for season in range(season_start, season_stop-1, -1):
@@ -47,16 +41,11 @@ if __name__ == '__main__':
         # 4. バトルデータベースの情報と照合して最終出力する
         create_ranker_data()
 
-        # break  # DEBUG
-
         config.delete_temporary_dirs()
 
     # 型はレギュレーションごとに分類するため、シーズンのループ外で生成する
     create_kata_data(g['rule'])
 
-    exit()
 
-    # TODO サーバにアップロード
-    subprocess.run(["scp", "-r",
-                    r"C:\Users\tmtmh\Documents\pokemon\pokeranker\output\*",
-                    "pbasv:/home/pbasv/pbasv.cloudfree.jp/script/home/download/kata/"])
+if __name__ == '__main__':
+    run(rule="single")
