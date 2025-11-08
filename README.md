@@ -4,12 +4,12 @@
 ### 紹介記事  
 https://hfps4469.hatenablog.com/entry/2024/10/11/100325
 
-## ダウンロード
+### ダウンロード
 ```
 git clone https://github.com/tmwork1/pokeranker_SV.git
 ```
 
-## 使い方
+### 使い方
 ```
 python main.py
 ```
@@ -18,6 +18,6 @@ python main.py
 (例) レギュレーションG  
 https://pbasv.cloudfree.jp/download/kata/kata_regG.json  
 
-## 引用
+### 引用
 ポケモンバトルデータベース  
 https://sv.pokedb.tokyo/  
